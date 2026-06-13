@@ -20,11 +20,11 @@ jobs:
           python-version: "3.12"
 
       - name: 安装依赖
-        run: pip install anthropic
+        run: pip install openai
 
       - name: 运行采集
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
         run: python collect.py
 
       - name: 提交数据
