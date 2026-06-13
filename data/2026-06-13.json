@@ -1,0 +1,83 @@
+{
+ "date": "2026-06-13",
+ "generated_at": "2026-06-13T14:14:51.723072+08:00",
+ "companies": [
+  {
+   "name": "字节跳动",
+   "items": [
+    {
+     "t": "检索失败：BadRequestError: Error code: 400 - {'error': {'message': 'invalid temperature: only 0.6 is allowed for this model', 'type': 'invalid_request_error'}}",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "阿里巴巴",
+   "items": [
+    {
+     "t": "检索失败：BadRequestError: Error code: 400 - {'error': {'message': 'invalid temperature: only 0.6 is allowed for this model', 'type': 'invalid_request_error'}}",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "腾讯",
+   "items": [
+    {
+     "t": "检索失败：BadRequestError: Error code: 400 - {'error': {'message': 'invalid temperature: only 0.6 is allowed for this model', 'type': 'invalid_request_error'}}",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "MiniMax",
+   "items": [
+    {
+     "t": "检索失败：BadRequestError: Error code: 400 - {'error': {'message': 'invalid temperature: only 0.6 is allowed for this model', 'type': 'invalid_request_error'}}",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "Anthropic",
+   "items": [
+    {
+     "t": "检索失败：BadRequestError: Error code: 400 - {'error': {'message': 'invalid temperature: only 0.6 is allowed for this model', 'type': 'invalid_request_error'}}",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "OpenAI",
+   "items": [
+    {
+     "t": "检索失败：BadRequestError: Error code: 400 - {'error': {'message': 'invalid temperature: only 0.6 is allowed for this model', 'type': 'invalid_request_error'}}",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "Google",
+   "items": [
+    {
+     "t": "检索失败：BadRequestError: Error code: 400 - {'error': {'message': 'invalid temperature: only 0.6 is allowed for this model', 'type': 'invalid_request_error'}}",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  }
+ ]
+}
