@@ -1,43 +1,63 @@
-# AI 情报站（网站版）
+# AI 情报站（网站版 · Kimi 驱动）
 
-一个每天自动收集字节跳动 / 阿里 / 腾讯 / MiniMax 最新动态的网站。
-GitHub Actions 每天定时联网检索并提交数据，GitHub Pages 免费托管网页。
-**手机浏览器输入网址即可查看，可分享给任何人，可保存到手机主屏幕当 App 用。**
+每天自动收集 7 家公司的最新动态，GitHub Actions 定时联网检索并提交数据，GitHub Pages 免费托管网页。
+**手机浏览器输入网址即可查看，可分享，可保存到主屏幕当 App 用。**
+
+监控清单：
+
+- 国内：字节跳动 / 阿里巴巴 / 腾讯 / MiniMax
+- 海外：Anthropic / OpenAI / Google
+
+采集由 **Kimi（Moonshot）API** 的内置联网搜索 `$web_search` 完成。
 
 ## 文件说明
 
-|文件          |作用                                |放置位置                                  |
-|------------|----------------------------------|--------------------------------------|
-|`collect.py`|每日采集脚本（调用 Claude API 联网检索，输出 JSON）|仓库根目录                                 |
-|`index.html`|网页（读取 data/ 下的 JSON 渲染日报）         |仓库根目录                                 |
-|`daily.yml` |定时任务配置                            |**必须移到 `.github/workflows/daily.yml`**|
+|文件          |作用                          |放置位置                                  |
+|------------|----------------------------|--------------------------------------|
+|`collect.py`|每日采集脚本（调用 Kimi 联网检索，输出 JSON）|仓库根目录                                 |
+|`index.html`|网页（读取 data/ 下的 JSON 渲染日报）   |仓库根目录                                 |
+|`daily.yml` |定时任务配置                      |**必须移到 `.github/workflows/daily.yml`**|
 
 ## 部署步骤（约 10 分钟）
 
-1. **建仓库**：GitHub 新建一个 **Public** 仓库（Pages 免费版要求公开），上传三个文件，注意把 `daily.yml` 放到 `.github/workflows/` 目录下
-1. **配 API Key**：仓库 Settings → Secrets and variables → Actions → 新建 Secret，名称 `ANTHROPIC_API_KEY`，值为你在 <https://console.anthropic.com> 创建的密钥（确认 Console 中已启用 Web Search）
-1. **开启网站**：Settings → Pages → Source 选 “Deploy from a branch” → Branch 选 `main`、目录选 `/ (root)` → Save
-1. **首次运行**：Actions 页签 → 选”每日采集 AI 情报” → Run workflow。跑完后访问
-   `https://你的用户名.github.io/仓库名/` 即可看到首期日报
-1. 之后每天北京时间 8:30 自动更新，无需任何操作
+1. **建仓库**：GitHub 新建 **Public** 仓库，上传三个文件，把 `daily.yml` 放到 `.github/workflows/` 目录
+1. **配 API Key**：先到 <https://platform.moonshot.cn> 注册并创建 API Key；
+   仓库 Settings → Secrets and variables → Actions → 新建 Secret，名称 `MOONSHOT_API_KEY`，值为你的密钥
+1. **开启网站**：Settings → Pages → Source 选 “Deploy from a branch” → Branch 选 `main`、目录 `/ (root)` → Save
+1. **首次运行**：Actions 页签 → “每日采集 AI 情报” → Run workflow，跑完访问
+   `https://你的用户名.github.io/仓库名/`
+1. 之后每天北京时间 8:30 自动更新
 
-## 手机上当 App 用
+## 如何调整监控对象
 
-Safari / Chrome 打开网址 → 分享 → “添加到主屏幕”，图标点开就是全屏的情报站。
+编辑 `collect.py` 顶部的 `COMPANIES` 列表，每家一行字典：
 
-## 自定义
+```python
+{"name": "公司名", "focus": "关注重点1、关注重点2、..."}
+```
 
-- **监控清单**：改 `collect.py` 顶部 `COMPANIES`，每家可写不同关注重点
+- **加海外公司**：建议多加一个 `"en"` 字段提供英文检索关键词，命中外媒更准，例如：
+  `{"name": "Meta", "focus": "Llama模型、AI眼镜、超算集群", "en": "Meta Llama AI"}`
+- **删公司**：直接删掉对应那一行
+- **调关注点**：改 `focus` 里的内容，越具体检索越聚焦
+- 改完提交到仓库即可，下次定时运行自动生效
+
+网页端无需改动——它按 JSON 里的公司顺序自动渲染分组。
+
+## 其他自定义
+
 - **推送时间**：改 `daily.yml` 的 cron（UTC 时间 = 北京时间 − 8 小时）
 - **保留天数**：`collect.py` 中索引默认保留最近 90 天
-- **叠加微信推送**：可与之前的企业微信 webhook 方案并存——在 `collect.py` 末尾加一段推送代码即可，需要时找 Claude 要
+- **每家搜索上限**：`collect.py` 的 `MAX_SEARCH_ROUNDS`
+- **换模型**：`collect.py` 的 `MODEL`（如未来的 kimi-k2.6）
 
 ## 成本
 
-GitHub Actions 与 Pages 免费额度完全够用。唯一成本是 Anthropic API：
-4 家公司 × 每家最多 4 次检索，每天约 ¥1–3。
+GitHub Actions 与 Pages 免费额度足够。Kimi 联网搜索约每次 ¥0.03，
+7 家公司 × 每天数次检索，日成本约 ¥1–2，外加少量 token 费用。
 
 ## 注意
 
-- 仓库是公开的，意味着日报数据任何人可见（API Key 在 Secrets 中，不会泄露）。介意的话可用私有仓库 + 其他静态托管（Cloudflare Pages 支持私有仓库免费托管）
-- 检索结果为 AI 整理，传闻类已标注，重要信息请点击信源链接核对原文
+- Public 仓库的日报数据任何人可见（API Key 在 Secrets 中不会泄露）。介意可改用 Cloudflare Pages + 私有仓库
+- 海外公司检索如命中外媒原文，链接可能需科学上网才能打开，但摘要本身为中文
+- 结果为 AI 整理，传闻类已标注，重要信息请点信源链接核对
