@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 情报站</title>
+<style>
+  :root{
+    --paper:#FBFBF8; --ink:#1C1C1A; --red:#C5281C; --steel:#5A7290;
+    --faint:#8C8C86; --line:#E3E2DB;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:-apple-system,"PingFang SC","Helvetica Neue","Microsoft YaHei",sans-serif}
+  .wrap{max-width:780px;margin:0 auto;padding:0 18px 60px}
+  .meta{display:flex;justify-content:space-between;font-size:11px;
+    letter-spacing:.14em;color:var(--faint);padding-top:28px;margin-bottom:8px}
+  .masthead{border-top:4px solid var(--red);border-bottom:1px solid var(--ink);padding:18px 0 14px}
+  h1{font-family:"Songti SC","Noto Serif SC","SimSun",serif;font-weight:900;
+    font-size:clamp(26px,5vw,38px);margin:0}
+  h1 .accent{color:var(--red)}
+  .sub{margin:6px 0 0;font-size:12.5px;color:var(--steel)}
+  .dates{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+  .dates button{border:1px solid var(--line);background:#fff;color:var(--ink);
+    padding:5px 10px;font-size:12px;cursor:pointer;font-family:inherit}
+  .dates button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .dates button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+  section{margin:26px 0 0}
+  h2{font-family:"Songti SC","Noto Serif SC","SimSun",serif;font-size:18px;font-weight:900;
+    margin:0 0 10px;border-left:4px solid var(--red);padding-left:10px}
+  .item{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);
+    font-size:13.5px;line-height:1.7}
+  .item .dot{color:var(--red);flex-shrink:0}
+  .src{color:var(--faint);font-size:12px}
+  .src a{color:var(--steel)}
+  .empty{font-size:13px;color:var(--faint)}
+  .notice{border:1px dashed var(--line);padding:44px 20px;text-align:center;
+    color:var(--faint);font-size:13.5px;line-height:1.8;margin-top:26px}
+  footer{margin-top:30px;border-top:2px solid var(--ink);padding-top:12px;
+    font-size:11.5px;color:var(--faint);line-height:1.7}
+  @media (prefers-reduced-motion: no-preference){
+    section{animation:fade .3s ease}
+    @keyframes fade{from{opacity:0}to{opacity:1}}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="meta"><span>每日自动收集 · GitHub Actions</span><span id="today"></span></div>
+  <div class="masthead">
+    <h1>AI 情报<span class="accent">站</span></h1>
+    <p class="sub" id="watchlist">加载中…</p>
+  </div>
+  <div class="dates" id="dates"></div>
+  <main id="main"><div class="notice">正在加载情报数据…</div></main>
+  <footer>内容为 AI 联网检索整理，传闻类已标注。重要决策请核对原始报道。</footer>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+$("today").textContent = new Date().toLocaleDateString("zh-CN");
+
+let dates = [];
+
+async function loadIndex() {
+  try {
+    const r = await fetch("data/index.json", {cache: "no-store"});
+    if (!r.ok) throw new Error(r.status);
+    dates = (await r.json()).dates || [];
+  } catch (e) {
+    $("main").innerHTML = '<div class="notice">还没有数据。<br>请先在 GitHub Actions 手动运行一次采集任务，几分钟后刷新本页。</div>';
+    return;
+  }
+  if (!dates.length) {
+    $("main").innerHTML = '<div class="notice">数据索引为空，等待首次采集完成。</div>';
+    return;
+  }
+  renderDates(dates[0]);
+  loadBrief(dates[0]);
+}
+
+function renderDates(active) {
+  $("dates").innerHTML = "";
+  dates.forEach((d) => {
+    const b = document.createElement("button");
+    b.textContent = d;
+    if (d === active) b.classList.add("active");
+    b.onclick = () => { renderDates(d); loadBrief(d); };
+    $("dates").appendChild(b);
+  });
+}
+
+function esc(s) {
+  const div = document.createElement("div");
+  div.textContent = s == null ? "" : String(s);
+  return div.innerHTML;
+}
+
+async function loadBrief(date) {
+  $("main").innerHTML = '<div class="notice">加载 ' + esc(date) + ' …</div>';
+  try {
+    const r = await fetch("data/" + date + ".json", {cache: "no-store"});
+    if (!r.ok) throw new Error(r.status);
+    const brief = await r.json();
+    $("watchlist").textContent = "监控：" + brief.companies.map((c) => c.name).join(" / ");
+    let html = "";
+    for (const c of brief.companies) {
+      html += "<section><h2>" + esc(c.name) + "</h2>";
+      if (!c.items || !c.items.length) {
+        html += '<p class="empty">过去48小时暂无重要动态</p>';
+      } else {
+        for (const it of c.items) {
+          const link = it.u
+            ? '<a href="' + esc(it.u) + '" target="_blank" rel="noopener">' + esc(it.s || "原文") + "</a>"
+            : esc(it.s || "");
+          html += '<div class="item"><span class="dot">•</span><span>' + esc(it.t)
+            + ' <span class="src">（' + link + (it.r ? " · 传闻" : "") + "）</span></span></div>";
+        }
+      }
+      html += "</section>";
+    }
+    $("main").innerHTML = html;
+  } catch (e) {
+    $("main").innerHTML = '<div class="notice">读取 ' + esc(date) + ' 的数据失败，请稍后刷新重试。</div>';
+  }
+}
+
+loadIndex();
+</script>
+</body>
+</html>
