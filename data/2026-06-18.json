@@ -1,0 +1,79 @@
+{
+ "date": "2026-06-18",
+ "generated_at": "2026-06-18T13:13:20.043187+08:00",
+ "companies": [
+  {
+   "name": "字节跳动",
+   "items": [
+    {
+     "t": "检索失败：JSONDecodeError: Extra data: line 3 column 1 (char 4)",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "阿里巴巴",
+   "items": [
+    {
+     "t": "检索失败：JSONDecodeError: Extra data: line 1 column 3 (char 2)",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "腾讯",
+   "items": []
+  },
+  {
+   "name": "MiniMax",
+   "items": [
+    {
+     "t": "MiniMax发布视频生成模型Hailuo 02，支持1080p原生视频创作",
+     "s": "AIGC产业创新/36氪",
+     "u": "http://mp.weixin.qq.com/s?__biz=MjM5NzI2NzA3Mg==&mid=2648461974&idx=3&sn=0455adb58d8956ca921e41f94a70d9e1",
+     "r": false
+    },
+    {
+     "t": "MiniMax启动为期一周'技术发布周'，集中发布M1开源模型、Hailuo-02视频模型、MiniMax Agent智能体等多款产品",
+     "s": "36氪",
+     "u": "http://mp.weixin.qq.com/s?__biz=MzU3Mjk1OTQ0Ng==&mid=2247527573&idx=2&sn=6672056a0d0dadb0f2dad90bd46f3e3d",
+     "r": false
+    },
+    {
+     "t": "MiniMax M3模型API价格较上一代M2.7至少翻倍，商业化定价权提升",
+     "s": "财新网",
+     "u": "https://www.caixin.com/2026-06-02/102450121.html?originReferrer=kimi",
+     "r": false
+    },
+    {
+     "t": "MiniMax 5月29日已与中信证券签署辅导协议，正式启动A股科创板IPO",
+     "s": "财新网",
+     "u": "https://www.caixin.com/2026-06-02/102450121.html?originReferrer=kimi",
+     "r": false
+    },
+    {
+     "t": "MiniMax与智谱将于6月8日起加入恒生科技指数与恒生综合指数",
+     "s": "财新数据专稿",
+     "u": "https://database.caixin.com/2026-06-08/102451893.html?originReferrer=kimi",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "Anthropic",
+   "items": []
+  },
+  {
+   "name": "OpenAI",
+   "items": []
+  },
+  {
+   "name": "Google",
+   "items": []
+  }
+ ]
+}
