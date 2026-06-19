@@ -1,0 +1,34 @@
+{
+ "date": "2026-06-19",
+ "generated_at": "2026-06-19T13:32:26.725914+08:00",
+ "companies": [
+  {
+   "name": "字节跳动",
+   "items": []
+  },
+  {
+   "name": "阿里巴巴",
+   "items": []
+  },
+  {
+   "name": "腾讯",
+   "items": []
+  },
+  {
+   "name": "MiniMax",
+   "items": []
+  },
+  {
+   "name": "Anthropic",
+   "items": []
+  },
+  {
+   "name": "OpenAI",
+   "items": []
+  },
+  {
+   "name": "Google",
+   "items": []
+  }
+ ]
+}
