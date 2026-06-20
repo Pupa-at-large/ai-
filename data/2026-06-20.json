@@ -1,0 +1,65 @@
+{
+ "date": "2026-06-20",
+ "generated_at": "2026-06-20T12:49:06.516446+08:00",
+ "companies": [
+  {
+   "name": "字节跳动",
+   "items": []
+  },
+  {
+   "name": "阿里巴巴",
+   "items": []
+  },
+  {
+   "name": "腾讯",
+   "items": []
+  },
+  {
+   "name": "MiniMax",
+   "items": [
+    {
+     "t": "MiniMax发布全球首个开源大规模混合架构推理模型MiniMax-M1，支持100万Token上下文输入和8万Token推理输出",
+     "s": "澎湃新闻",
+     "u": "https://news.qq.com/rain/a/20250618A08VOH00",
+     "r": false
+    },
+    {
+     "t": "MiniMax正考虑在香港进行IPO，目前处于初步筹备阶段",
+     "s": "澎湃新闻",
+     "u": "https://m.thepaper.cn/newsDetail_forward_31003688",
+     "r": true
+    },
+    {
+     "t": "MiniMax发起为期一周的技术发布周，集中发布MiniMax-M1、视频模型Hailuo-02、通用智能体MiniMax Agent等成果",
+     "s": "晚点LatePost",
+     "u": "http://mp.weixin.qq.com/s?__biz=MzU3Mjk1OTQ0Ng==&mid=2247527573&idx=2&sn=6672056a0d0dadb0f2dad90bd46f3e3d",
+     "r": false
+    },
+    {
+     "t": "MiniMax近3亿美元新一轮融资接近完成，投后估值超40亿美元",
+     "s": "晚点LatePost",
+     "u": "http://mp.weixin.qq.com/s?__biz=MzU3Mjk1OTQ0Ng==&mid=2247527573&idx=2&sn=6672056a0d0dadb0f2dad90bd46f3e3d",
+     "r": true
+    },
+    {
+     "t": "海螺AI视频生成模型Hailuo-02发布，支持原生1080p，网页端用户数近1500万",
+     "s": "晚点LatePost",
+     "u": "http://mp.weixin.qq.com/s?__biz=MzU3Mjk1OTQ0Ng==&mid=2247527573&idx=2&sn=6672056a0d0dadb0f2dad90bd46f3e3d",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "Anthropic",
+   "items": []
+  },
+  {
+   "name": "OpenAI",
+   "items": []
+  },
+  {
+   "name": "Google",
+   "items": []
+  }
+ ]
+}
