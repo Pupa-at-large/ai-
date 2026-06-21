@@ -1,0 +1,48 @@
+{
+ "date": "2026-06-21",
+ "generated_at": "2026-06-21T13:23:56.768824+08:00",
+ "companies": [
+  {
+   "name": "字节跳动",
+   "items": []
+  },
+  {
+   "name": "阿里巴巴",
+   "items": []
+  },
+  {
+   "name": "腾讯",
+   "items": []
+  },
+  {
+   "name": "MiniMax",
+   "items": [
+    {
+     "t": "MiniMax知情人士回应IPO传闻，确认考虑赴港上市但处于初步筹备阶段",
+     "s": "澎湃新闻",
+     "u": "https://www.163.com/dy/article/K2GPB4IG0519DFFQ.html",
+     "r": true
+    }
+   ]
+  },
+  {
+   "name": "Anthropic",
+   "items": [
+    {
+     "t": "检索失败：JSONDecodeError: Extra data: line 1 column 3 (char 2)",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "OpenAI",
+   "items": []
+  },
+  {
+   "name": "Google",
+   "items": []
+  }
+ ]
+}
