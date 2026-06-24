@@ -1,0 +1,65 @@
+{
+ "date": "2026-06-24",
+ "generated_at": "2026-06-24T12:45:30.865708+08:00",
+ "companies": [
+  {
+   "name": "字节跳动",
+   "items": [
+    {
+     "t": "豆包推出专业版收费服务，基于豆包2.1大模型，最低档位连续包月68元，面向复杂办公和生产力场景",
+     "s": "财新网",
+     "u": "https://www.caixin.com/2026-06-24/102456917.html",
+     "r": false
+    },
+    {
+     "t": "火山引擎宣布7月初发布AI视频生成模型Seedance 2.5，支持3D建模预演、4K直出、局部编辑等能力",
+     "s": "财新网",
+     "u": "https://www.caixin.com/2026-06-23/102456669.html",
+     "r": false
+    },
+    {
+     "t": "字节跳动发布豆包2.1系列大模型，聚焦Coding、Agent、VLM三大方向，评测表现优于Claude Opus 4.6",
+     "s": "财新网",
+     "u": "https://www.caixin.com/2026-06-23/102456669.html",
+     "r": false
+    },
+    {
+     "t": "豆包大模型日均Token调用量6月突破180万亿，过去一年增长超10倍",
+     "s": "财新网",
+     "u": "https://www.caixin.com/2026-06-23/102456669.html",
+     "r": false
+    },
+    {
+     "t": "Seedance 2.0视频模型带动火山引擎单日收入从年初2000万元涨至约5000万元，月收入约15亿元",
+     "s": "财新网",
+     "u": "https://www.caixin.com/2026-06-23/102456669.html",
+     "r": true
+    }
+   ]
+  },
+  {
+   "name": "阿里巴巴",
+   "items": []
+  },
+  {
+   "name": "腾讯",
+   "items": []
+  },
+  {
+   "name": "MiniMax",
+   "items": []
+  },
+  {
+   "name": "Anthropic",
+   "items": []
+  },
+  {
+   "name": "OpenAI",
+   "items": []
+  },
+  {
+   "name": "Google",
+   "items": []
+  }
+ ]
+}
