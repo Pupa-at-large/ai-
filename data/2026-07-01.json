@@ -1,0 +1,83 @@
+{
+ "date": "2026-07-01",
+ "generated_at": "2026-07-01T13:00:56.995202+08:00",
+ "companies": [
+  {
+   "name": "字节跳动",
+   "items": [
+    {
+     "t": "检索失败：RateLimitError: Error code: 429 - {'error': {'message': 'Your account org-9c3f7014eb9d4134a5bcb8b64cf6da09 <ak-fapgxotgwxki11b3mqki> is suspended due to insufficient balance, please recharge your account or check your plan and billing details', 'type': 'exceeded_current_quota_error'}}",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "阿里巴巴",
+   "items": [
+    {
+     "t": "检索失败：RateLimitError: Error code: 429 - {'error': {'message': 'Your account org-9c3f7014eb9d4134a5bcb8b64cf6da09 <ak-fapgxotgwxki11b3mqki> is suspended due to insufficient balance, please recharge your account or check your plan and billing details', 'type': 'exceeded_current_quota_error'}}",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "腾讯",
+   "items": [
+    {
+     "t": "检索失败：RateLimitError: Error code: 429 - {'error': {'message': 'Your account org-9c3f7014eb9d4134a5bcb8b64cf6da09 <ak-fapgxotgwxki11b3mqki> is suspended due to insufficient balance, please recharge your account or check your plan and billing details', 'type': 'exceeded_current_quota_error'}}",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "MiniMax",
+   "items": [
+    {
+     "t": "检索失败：RateLimitError: Error code: 429 - {'error': {'message': 'Your account org-9c3f7014eb9d4134a5bcb8b64cf6da09 <ak-fapgxotgwxki11b3mqki> is suspended due to insufficient balance, please recharge your account or check your plan and billing details', 'type': 'exceeded_current_quota_error'}}",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "Anthropic",
+   "items": [
+    {
+     "t": "检索失败：RateLimitError: Error code: 429 - {'error': {'message': 'Your account org-9c3f7014eb9d4134a5bcb8b64cf6da09 <ak-fapgxotgwxki11b3mqki> is suspended due to insufficient balance, please recharge your account or check your plan and billing details', 'type': 'exceeded_current_quota_error'}}",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "OpenAI",
+   "items": [
+    {
+     "t": "检索失败：RateLimitError: Error code: 429 - {'error': {'message': 'Your account org-9c3f7014eb9d4134a5bcb8b64cf6da09 <ak-fapgxotgwxki11b3mqki> is suspended due to insufficient balance, please recharge your account or check your plan and billing details', 'type': 'exceeded_current_quota_error'}}",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  },
+  {
+   "name": "Google",
+   "items": [
+    {
+     "t": "检索失败：RateLimitError: Error code: 429 - {'error': {'message': 'Your account org-9c3f7014eb9d4134a5bcb8b64cf6da09 <ak-fapgxotgwxki11b3mqki> is suspended due to insufficient balance, please recharge your account or check your plan and billing details', 'type': 'exceeded_current_quota_error'}}",
+     "s": "系统",
+     "u": "",
+     "r": false
+    }
+   ]
+  }
+ ]
+}
